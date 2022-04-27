@@ -1,4 +1,4 @@
-song_id ,soung_name,Artist ,genre 
+song_id ,song_name,artist,genre 
 1,up,down,"country, pop"
 2,up,down,hip-hop
 3,up,down,rock 
