@@ -27,7 +27,7 @@ def recommend_song(genre):
     """  
     
 def main():
-    """ This function will collect user input and pass the responses as argument to the other methods.
+    """ This function will collect user input from our google survey and pass the responses as arguments to the other methods.
     Args:
         None
         
