@@ -1,6 +1,9 @@
 import csv
 import sys 
 
+class Recommender:
+    def __init__(self)
+
 
 def recommend_artist(Genres, type):
     """ This method will compare the argument added to the list of artist we have and will 
