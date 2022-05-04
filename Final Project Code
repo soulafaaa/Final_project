@@ -10,25 +10,24 @@ def recommend_artist(genre):
     recommend a new artist 
     
     Args: 
-        genre (list): valued representing the user's favorite music genre 
+        genre (list): valued representing the user's favorite music type 
     Return: 
         List of recomended artists
     """
     
     
-def recommend_song(Genre, type):
-    """ This method will compare teh arument passed to the existing list of songs we have 
-    and will recommend diffrent songs
+def recommend_song(genre):
+    """ This method will compare the argument passed to the existing list of songs we have 
+    and will recommend different songs
     Args: 
-        Genre (list): values representing the user favorite music type
-        Type (String): value representing whether the user is looking for an artist orband 
+        Genre (list): values representing the user favorite music type 
      Return: 
         List of recomended songs
     
     """  
     
 def main():
-    """ the main will collect user input and pass the responses as argument to the other methods.
+    """ This function will collect user input and pass the responses as argument to the other methods.
     Args:
         None
         
