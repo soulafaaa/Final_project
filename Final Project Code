@@ -5,19 +5,18 @@ class Recommender:
     def __init__(self)
 
 
-def recommend_artist(Genres, type):
+def recommend_artist(genre):
     """ This method will compare the argument added to the list of artist we have and will 
     recommend a new artist 
     
     Args: 
-        Genre (list): valued representing the user favorite music type
-        Type (String): value representing whether the user is looking for an artist orband 
+        genre (list): valued representing the user's favorite music genre 
     Return: 
-        List of recomended artist
+        List of recomended artists
     """
     
     
-def recommend_song(Genre,type):
+def recommend_song(Genre, type):
     """ This method will compare teh arument passed to the existing list of songs we have 
     and will recommend diffrent songs
     Args: 
