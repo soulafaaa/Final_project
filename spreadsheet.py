@@ -1,5 +1,4 @@
 import gspread
-
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
 import re
@@ -14,14 +13,17 @@ def spreadsheetReader():
 
 
 def recommend_artist(genre):
+    #return list with tuple value
     sheet = spreadsheetReader()
-
+    
+    #concatenating the regex value we will be looking for from the spreadsheet
     looking_for = regexHelper(genre) 
     
     criteria_re = re.compile(looking_for)
     cells = sheet.findall(criteria_re)
     artist_name = []
     
+    #looping through the cells to find the artist matchnig the genre 
     for cell in cells:
         if cell.col == 2: 
             artist_name.append(sheet.cell(cell.row, 3).value)
@@ -31,13 +33,11 @@ def recommend_artist(genre):
     return artist_name
 
 
-
-
 def recommend_song(genre):
     #return list with tuple value 
     sheet = spreadsheetReader()
     
-    # concatinating the regex value we will be loking for from the spreadsheet 
+    #concatenating the regex value we will be looking for from the spreadsheet
     looking_for = regexHelper(genre)
    
     criteria_re = re.compile(looking_for)
@@ -60,8 +60,3 @@ def regexHelper(ls):
             looking_for += ".*$" 
             
     return looking_for
-    
-    
-
-sheet = spreadsheetReader()
-print(sheet.col_count)
