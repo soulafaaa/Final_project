@@ -21,5 +21,27 @@ def getartist(name):
     
 getartist("beyonce")
 
+def recommend_artist(genre):
+    """ This method will compare the argument added to the list of artist we have and will 
+    recommend a new artist 
+    
+    Args: 
+        genre (list): valued representing the user's favorite music type 
+    Return: 
+        List of recomended artists
+    """
+    
+    
+    
+def recommend_song(genre):
+    """ This method will compare the argument passed to the existing list of songs we have 
+    and will recommend different songs
+    Args: 
+        Genre (list): values representing the user favorite music type 
+     Return: 
+        List of recomended songs
+    
+    """  
+
 
 
