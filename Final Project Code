@@ -1,64 +1,124 @@
 import csv
 import sys 
 import re 
+import spreadsheet as sp
 
-def recommend_artist(genre):
-    """ This method will compare the argument added to the list of artist we have and will 
-    recommend a new artist 
+class recomendation():
+
     
-    Args: 
-        genre (list): valued representing the user's favorite music type 
-    Return: 
-        List of recomended artists
-    """
+    def artistRecomendation(genre): 
+        """ This methods will call recommend_artist function from the spreadsheet
+        Args: 
+            genre (string): value representing the user's favorite music type 
+        Return: 
+            A string value represnting the artist suggestion  
+        """
+        #slitting the genrea into a list 
+        ls = genre.split()
+        genre_red = sp.recommend_artist(ls)
+       
+        ans = ""
+        #concatinating the final recomendation 
+        if genre_red: 
+            ans = "\nBased on your input "
+            if len(ls) > 1:
+                for i in ls:
+                    ans += i + ", "
+            else: ans += ls[0] +" "
+            ans += "your artist suggestion for today are: " 
+            for artist in genre_red:
+                ans += artist + ", "
+            # remove the extra comma at the end 
+            ans = ans[:-2]
+        else:
+            ans = "\n\033[31mI'm sorry please try another combination!\033[0m"
+    
+        return ans
     
     
-def recommend_song(genre):
-    """ This method will compare the argument passed to the existing list of songs we have 
-    and will recommend different songs
-    Args: 
-        Genre (list): values representing the user favorite music type 
-     Return: 
-        List of recomended songs
+    def songRecomendation(genre): 
+        """ This methods will call recommend_song function from the spreadsheet
+        Args: 
+            genre (string): value representing the user's favorite music type 
+        Return: 
+            A string value represnting the song suggestion  with the artist name
+        """
+        #slitting the genrea into a list 
+        ls = genre.split()
+        genre_red = sp.recommend_song(ls)
+       
+        ans = ""
+        #concatinating the final recomendation 
+        if genre_red: 
+             ans = "\nBased on your input "
+             if len(ls) > 1:
+                for i in ls:
+                    ans += i + ", "
+             else: ans += ls[0] +" "
+             ans += "your song suggestion for today are: " 
+             for song in genre_red:
+                ans += song[0] + " by "+ song[1]+ ", "
+            # remove the extra comma at the end 
+             ans = ans[:-2]
+        else:
+            ans = "\n\033[31mI'm sorry please try another combination!\033[0m"
     
-    """  
+        return ans
+    
+
+        
     
 def main():
-    """ This function will collect user input from our google survey and pass the responses as arguments to the other methods.
+    """ This function will collect user input and pass the responses into methods from the recomendation class
     Args:
         None
-        
     Return: 
-        String:  with all the  recommnded music based on their 
-    favorite atrist and genre they inputed.
+        String value that represnts the recommended music. 
     """
     
     
     while True:
          name = input("What is your name? ")
          if checkString(name): 
-            print (f"\nHello,{name}! We offer two different kinds of recommendation.\n" 
-                     "Option A: recommendation based on your favorite genre.\n"
-                     "Option B : recommendation based on your  favorite artist.\n\n")
+            print (f"\n\033[33mHello,{name}! We offer two different kinds of recommendation.\033[0m\n" 
+                     "\033[31mOption A: an artist recommendation based on your favorite genre.\n"
+                     "Option B:a song recommendation based on your  favorite genre.\n\033[0m")
             rec_type = input("What kind of recomendation would you like today? Type A or B\n")
             if checkString(rec_type):
                 if rec_type.strip() == "A":
-                    if checkString(fav_genre): 
-                        #call genre music rec
-                        print(" #call genre music rec")
-                        break
+                    fav_genre = input("what is your favorit genre?"
+                                      "(if more than one separate answers with space)\n")
+                    #call genre music recsoulaf
+                    if checkString(fav_genre):
+                        rec = recomendation.artistRecomendation(fav_genre)
+                        print(rec)
+                        if rec == "\n\033[31mI'm sorry please try another combination!\033[0m":
+                            continue
+                        else:
+                            break
                     
                 if rec_type.strip() == "B":
-                    fav_artist = input("Who is your favorit artist?")
-                    if checkString(fav_artist):
-                        fav_artist_genre = input("What genre best represens your favorit artist?\n(if more than one separate answers with comma)\n")
-                        print(" #call genre music rec")
-                        break
-                        
+                     fav_genre = input("what is your favorit genre?"
+                                      "(if more than one separate answers with space)\n")
+                    #call genre music recsoulaf
+                     if checkString(fav_genre):
+                        rec = recomendation.songRecomendation(fav_genre)
+                        print(rec)
+                        if rec == "\n\033[31mI'm sorry please try another combination!\033[0m":
+                            continue
+                        else:
+                            break
+                    
                     
                 
 def checkString(word):
-    validate = re.findall(r'^[a-zA-Z]+$', word)
+    """ A helper function that uese regex to make sure the user has inpouted an acepted value
+        Args: 
+            word (string): a string that represnet the user input 
+        Return: 
+            return true or false dependeing on whether th user has inputed an acepted value
+    """
+    validate = re.findall(r'[a-zA-Z]+|[&]+|[-]+', word)
     value = True 
     if not validate:
         value = False 
