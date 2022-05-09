@@ -1,9 +1,6 @@
 import csv
 import sys 
-
-class Recommender:
-    def __init__(self)
-
+import re 
 
 def recommend_artist(genre):
     """ This method will compare the argument added to the list of artist we have and will 
@@ -35,8 +32,37 @@ def main():
         String:  with all the  recommnded music based on their 
     favorite atrist and genre they inputed.
     """
-    open_file()
     
+    
+    while True:
+         name = input("What is your name? ")
+         if checkString(name): 
+            print (f"\nHello,{name}! We offer two different kinds of recommendation.\n" 
+                     "Option A: recommendation based on your favorite genre.\n"
+                     "Option B : recommendation based on your  favorite artist.\n\n")
+            rec_type = input("What kind of recomendation would you like today? Type A or B\n")
+            if checkString(rec_type):
+                if rec_type.strip() == "A":
+                    if checkString(fav_genre): 
+                        #call genre music rec
+                        print(" #call genre music rec")
+                        break
+                    
+                if rec_type.strip() == "B":
+                    fav_artist = input("Who is your favorit artist?")
+                    if checkString(fav_artist):
+                        fav_artist_genre = input("What genre best represens your favorit artist?\n(if more than one separate answers with comma)\n")
+                        print(" #call genre music rec")
+                        break
+                        
+                    
+                
+def checkString(word):
+    validate = re.findall(r'^[a-zA-Z]+$', word)
+    value = True 
+    if not validate:
+        value = False 
+    return value
     
      
 
