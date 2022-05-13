@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 """ This scrit holds three functions that are needed to extract data from  the google sheet."""
-=======
-""" This script holds three functions that are needed to extract data from the google sheet."""
->>>>>>> 61a83c7aa20d2b21b6ffc08f6b1a2f428f1dd6d4
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
