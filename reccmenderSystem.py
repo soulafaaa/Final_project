@@ -86,7 +86,7 @@ def main():
             rec_type = input("What kind of recomendation would you like today? Type A or B\n")
             if checkString(rec_type):
                 if rec_type.strip() == "A":
-                    fav_genre = input("what is your favorit genre?"
+                    fav_genre = input("what is your favorite genre?"
                                       "(if more than one separate answers with space)\n")
                     #call genre music recsoulaf
                     if checkString(fav_genre):
@@ -98,7 +98,7 @@ def main():
                             break
                     
                 if rec_type.strip() == "B":
-                     fav_genre = input("what is your favorit genre?"
+                     fav_genre = input("what is your favorite genre?"
                                       "(if more than one separate answers with space)\n")
                     #call genre music recsoulaf
                      if checkString(fav_genre):
@@ -114,9 +114,9 @@ def main():
 def checkString(word):
     """ A helper function that uese regex to make sure the user has inpouted an acepted value
         Args: 
-            word (string): a string that represnet the user input 
+            word (string): a string that represent the user input 
         Return: 
-            return true or false dependeing on whether th user has inputed an acepted value
+            return true or false dependeing on whether the user has inputed an accepted value
     """
     validate = re.findall(r'[a-zA-Z]+|[&]+|[-]+', word)
     value = True 
