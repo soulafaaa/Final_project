@@ -31,7 +31,7 @@ class recomendation():
             # remove the extra comma at the end 
             ans = ans[:-2]
         else:
-            ans = "\n\033[31mI'm sorry please try another combination!\033[0m"
+            ans = "\n\033[31mI'm sorry please try another input!\033[0m"
     
         return ans
     
@@ -61,7 +61,7 @@ class recomendation():
             # remove the extra comma at the end 
              ans = ans[:-2]
         else:
-            ans = "\n\033[31mI'm sorry please try another combination!\033[0m"
+            ans = "\n\033[31mI'm sorry please try another input!\033[0m"
     
         return ans
     
