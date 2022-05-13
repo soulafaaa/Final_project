@@ -1,7 +1,7 @@
 """ 
-   This script holds the recommendation class that will invoke function from the 
-   spreadsheet script. It will also collect responses from users in the main function
-   and will pass the arguments into the recommendation class.
+   This script holds the recommendation class that will invoke functions from the 
+   spreadsheet script. Additionally, it will collect responses from users in the main function
+   and pass the arguments into the recommendation class.
 """
 import sys 
 import re 
@@ -13,13 +13,13 @@ class Recomendation():
         spreadsheet script.
         
     Attributes:
-        genre (string): value representing the user's favorite music type; this value will 
+        genre (string): value representing the users' favorite music type; this value will 
             then be turned into a list 
     """
     
     def __init__(self, genre):
         """
-        Initializes a Recommendation object.
+        Initializes a Recommendation object
 
         Args:
             genre (string): value representing the user's favorite music type
@@ -33,7 +33,7 @@ class Recomendation():
         These methods will call the recommend_artist function from the spreadsheet.
         
         Return: 
-          ans (String) : A value represnting the artist suggestion  
+          ans (str) : A value represnting the artist suggestion  
         """
         #slitting the genrea into a list 
         ls = self.genre.split()
