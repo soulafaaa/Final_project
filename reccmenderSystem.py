@@ -1,20 +1,42 @@
-import csv
+""" 
+   This script hold the recommendation class that will invoke function from the 
+   spreadsheet script it will also collect responses from users in teh main function
+   and will pass the arguments into the recommendation class.
+"""
 import sys 
 import re 
 import spreadsheet as sp
 
-class recomendation():
-
+class Recomendation():
+    """ 
+    This class will retrun the user reccomenation  by invoking fucntions from 
+        spreadsheet script
+        
+    Attributes:
+        genre (string): value representing the user's favorite music type, this value will 
+            than be turned into a list 
+    """
     
-    def artistRecomendation(genre): 
-        """ This methods will call recommend_artist function from the spreadsheet
-        Args: 
-            genre (string): value representing the user's favorite music type 
+    def __init__(self, genre):
+        """
+        Initializes a Recomendation object.
+
+        Args:
+            genre (string): value representing the user's favorite music type,
+
+        """
+        self.genre = genre
+    
+    
+    def artistRecomendation(self): 
+        """ 
+        This methods will call recommend_artist function from the spreadsheet
+        
         Return: 
             A string value represnting the artist suggestion  
         """
         #slitting the genrea into a list 
-        ls = genre.split()
+        ls = self.genre.split()
         genre_red = sp.recommend_artist(ls)
        
         ans = ""
@@ -36,15 +58,15 @@ class recomendation():
         return ans
     
     
-    def songRecomendation(genre): 
-        """ This methods will call recommend_song function from the spreadsheet
-        Args: 
-            genre (string): value representing the user's favorite music type 
+    def songRecomendation(self): 
+        """ 
+        This methods will call recommend_song function from the spreadsheet
+    
         Return: 
             A string value represnting the song suggestion  with the artist name
         """
         #slitting the genrea into a list 
-        ls = genre.split()
+        ls = self.genre.split()
         genre_red = sp.recommend_song(ls)
        
         ans = ""
@@ -69,9 +91,10 @@ class recomendation():
         
     
 def main():
-    """ This function will collect user input and pass the responses into methods from the recomendation class
-    Args:
-        None
+    """ 
+    This function will collect user input and pass the responses into methods from the 
+        recomendation class
+        
     Return: 
         String value that represnts the recommended music. 
     """
@@ -90,9 +113,12 @@ def main():
                                       "(if more than one separate answers with space)\n")
                     #call genre music recsoulaf
                     if checkString(fav_genre):
-                        rec = recomendation.artistRecomendation(fav_genre)
+                        #creating an isntance of the recomendation class 
+                        rec = Recomendation(fav_genre)
+                        rec = rec.artistRecomendation()
                         print(rec)
-                        if rec == "\n\033[31mI'm sorry please try another combination!\033[0m":
+                        if rec == "\n\033[31mI'm sorry please try another input!\033[0m":
+                            #continuous loop if we couldn't find a recommendation
                             continue
                         else:
                             break
@@ -100,11 +126,14 @@ def main():
                 if rec_type.strip() == "B":
                      fav_genre = input("what is your favorite genre?"
                                       "(if more than one separate answers with space)\n")
-                    #call genre music recsoulaf
+                    #call son d rec
                      if checkString(fav_genre):
-                        rec = recomendation.songRecomendation(fav_genre)
+                        #creating an isntance of the recomendation class 
+                        rec = Recomendation(fav_genre)
+                        rec = rec.songRecomendation()
                         print(rec)
-                        if rec == "\n\033[31mI'm sorry please try another combination!\033[0m":
+                        if rec == "\n\033[31mI'm sorry please try another input!\033[0m":
+                            #continuous loop if we couldn't find a recommendation
                             continue
                         else:
                             break
@@ -112,11 +141,14 @@ def main():
                     
                 
 def checkString(word):
-    """ A helper function that uese regex to make sure the user has inpouted an acepted value
-        Args: 
-            word (string): a string that represent the user input 
-        Return: 
-            return true or false dependeing on whether the user has inputed an accepted value
+    """ 
+    A helper function that uese regex to make sure the user has inpouted an acepted value
+    
+    Args: 
+        word (string): a string that represent the user input 
+        
+    Return: 
+        Returns a boolean value dependeing on whether the user has inputed an accepted value
     """
     validate = re.findall(r'[a-zA-Z]+|[&]+|[-]+', word)
     value = True 

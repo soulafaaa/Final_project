@@ -1,6 +1,7 @@
+""""""
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import pprint
 import re
 
 def spreadsheetReader():     
@@ -17,8 +18,7 @@ def recommend_artist(genre):
     sheet = spreadsheetReader()
     
     #concatenating the regex value we will be looking for from the spreadsheet
-    looking_for = regexHelper(genre) 
-    
+    looking_for = regex_helper(genre) 
     criteria_re = re.compile(looking_for)
     cells = sheet.findall(criteria_re)
     artist_name = []
@@ -38,11 +38,12 @@ def recommend_song(genre):
     sheet = spreadsheetReader()
     
     #concatenating the regex value we will be looking for from the spreadsheet
-    looking_for = regexHelper(genre)
    
+    looking_for = regex_helper(genre)
     criteria_re = re.compile(looking_for)
     cells = sheet.findall(criteria_re)
     song_names = []
+    
     #looping through the cells to find the songs matchnig the genre 
     for cell in cells:
         if cell.col == 6 or cell.col == 9 or cell.col == 12: 
@@ -51,12 +52,28 @@ def recommend_song(genre):
     return song_names
 
 
-def regexHelper(ls): 
+def regex_helper(ls): 
+    
+    """ This is a helper method that concatenate teh needed regex for the other functions to work
+    
+    Args:
+        ls(list): represents the genre the user has inputed  
+        
+    Return: 
+         A string value represnting the search for value in Regex
+    
+    
+    """
     looking_for = '(?i)'
     num = len(ls) -1
     for word in ls: 
-        looking_for += "(?=.*\\b"+word.strip()+")"
+        looking_for += "(?=.*\\b"+word.strip()+"\\b"+")"
         if ls.index(word) == num:
             looking_for += ".*$" 
             
     return looking_for
+
+
+value=["EDM"]
+ans = recommend_artist(value)
+print(ans)
