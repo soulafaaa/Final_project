@@ -28,16 +28,16 @@ class Recomendation():
         self.genre = genre
     
     
-    def artistRecomendation(self): 
+    def artist_rec(self): 
         """ 
         This methods will call recommend_artist function from the spreadsheet
         
         Return: 
-            A string value represnting the artist suggestion  
+          ans (String) : A value represnting the artist suggestion  
         """
         #slitting the genrea into a list 
         ls = self.genre.split()
-        genre_red = sp.recommend_artist(ls)
+        genre_red = sp.find_artist(ls)
        
         ans = ""
         #concatinating the final recomendation 
@@ -58,16 +58,16 @@ class Recomendation():
         return ans
     
     
-    def songRecomendation(self): 
+    def song_rec(self): 
         """ 
         This methods will call recommend_song function from the spreadsheet
     
         Return: 
-            A string value represnting the song suggestion  with the artist name
+            ans: value represnting the song suggestion  with the artist name
         """
         #slitting the genrea into a list 
         ls = self.genre.split()
-        genre_red = sp.recommend_song(ls)
+        genre_red = sp.find_song(ls)
        
         ans = ""
         #concatinating the final recomendation 
@@ -108,14 +108,13 @@ def main():
                      "Option B:a song recommendation based on your  favorite genre.\n\033[0m")
             rec_type = input("What kind of recomendation would you like today? Type A or B\n")
             if checkString(rec_type):
-                if rec_type.strip() == "A":
+                if rec_type.strip() == "A"| rec_type.strip() == "a":
                     fav_genre = input("what is your favorite genre?"
-                                      "(if more than one separate answers with space)\n")
-                    #call genre music recsoulaf
+                                      " (if more than one separate answers with space)\n")
                     if checkString(fav_genre):
                         #creating an isntance of the recomendation class 
                         rec = Recomendation(fav_genre)
-                        rec = rec.artistRecomendation()
+                        rec = rec.artist_rec()
                         print(rec)
                         if rec == "\n\033[31mI'm sorry please try another input!\033[0m":
                             #continuous loop if we couldn't find a recommendation
@@ -123,14 +122,14 @@ def main():
                         else:
                             break
                     
-                if rec_type.strip() == "B":
+                if rec_type.strip() == "B" | rec_type.strip() == "b" :
                      fav_genre = input("what is your favorite genre?"
                                       "(if more than one separate answers with space)\n")
-                    #call son d rec
+                    #call song rec
                      if checkString(fav_genre):
                         #creating an isntance of the recomendation class 
                         rec = Recomendation(fav_genre)
-                        rec = rec.songRecomendation()
+                        rec = rec.song_rec()
                         print(rec)
                         if rec == "\n\033[31mI'm sorry please try another input!\033[0m":
                             #continuous loop if we couldn't find a recommendation
@@ -148,7 +147,7 @@ def checkString(word):
         word (string): a string that represent the user input 
         
     Return: 
-        Returns a boolean value dependeing on whether the user has inputed an accepted value
+        value (boolean): returns a boolean depending on whether the user has inputted an accepted value
     """
     validate = re.findall(r'[a-zA-Z]+|[&]+|[-]+', word)
     value = True 

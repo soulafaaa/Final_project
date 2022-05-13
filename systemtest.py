@@ -50,22 +50,20 @@ class TestSpreadsheet(unittest.TestCase):
         
         
         
+class TestRecomendation(unittest.TestCase):  
+   
+    def testartistRecomendation(self):
+        pass
+    
+        
         
         
     
 
         
         
-        
-	
- 
-
-
-
-
-
-
-maybe = unittest.TestLoader() \
-                       .loadTestsFromTestCase(TestSpreadsheet)
+	##change whats isn the load test to run test 
+testSpreadsheet = unittest.TestLoader() \
+                       .loadTestsFromTestCase(testSpreadsheet)
 runner = unittest.TextTestRunner()
 runner.run(maybe)
