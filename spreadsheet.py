@@ -1,4 +1,4 @@
-""" This scrit holds three functions  that are needed to extract data from  the googl sheet."""
+""" This script holds three functions that are needed to extract data from the google sheet."""
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -6,11 +6,11 @@ import re
 
 def spreadsheetReader():     
     """ 
-    This fucntion uses google drive  API to connncect our script to our google sheet.
-        It returns a sheet with all the data we collected from out google form.
+    This function uses google drive API to connncect our script to our google sheet. 
+        It returns a sheet with all of the data we collected from our google form.
     
     Returns: 
-        Sheet (Spreadsheet): Holds  all the data we collected from the google form 
+        Sheet (Spreadsheet): Holds all the data we collected from the google form 
     
     """
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -23,14 +23,13 @@ def spreadsheetReader():
 
 def find_artist(genre):
     """ 
-    This function calls the spreadsheetReader to retrun a sheet and finds all the artist names 
-        we recommned
+    This function calls the spreadsheetReader to retrun a sheet and finds all the artist names we recommend.
         
     Argument: 
          genre (list): value representing the user's favorite music type
 
     Returns: 
-        artist_name (list): names of all teh artist we recommened
+        artist_name (list): names of all the artists we recommend
     """
     #return list with tuple value
     sheet = spreadsheetReader()
@@ -53,15 +52,15 @@ def find_artist(genre):
 
 def find_song(genre):
     """ 
-    This function calls the spreadsheetReader to returns a sheet and finds all the songs names 
-        and the artist who sand it
+    This function calls the spreadsheetReader to return a sheet and finds all the song names 
+        and the artists who sang them.
         
     Argument: 
          genre (list): value representing the user's favorite music type
 
     Returns: 
-        artist_name (list): this list contains values that are tuples. These values are the song
-            name  and the artist who sings the song. 
+        artist_name (list): this list contains values that are tuples; these values are the song
+            name and the artist who sings the song
     """
     #return list with tuple value 
     sheet = spreadsheetReader()
@@ -83,13 +82,13 @@ def find_song(genre):
 
 def regex_helper(ls): 
     
-    """ This is a helper method that concatenate the needed regex for the other functions to work
+    """ This is a helper method that concatenates the needed regex for the other functions to work
     
     Args:
-        ls(list): represents the genre the user has inputed  
+        ls(list): represents the genre that the user has inputed  
         
     Return: 
-        looking_for (String): A value represnting the search for value in Regex
+        looking_for (String): a value representing the search for a value in Regex
 
     """
     looking_for = '(?i)'
