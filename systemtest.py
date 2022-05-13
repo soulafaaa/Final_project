@@ -52,8 +52,7 @@ class TestSpreadsheet(unittest.TestCase):
         
              
         
-	##change whats isn the load test to run test 
-testSpreadsheet = unittest.TestLoader() \
-                       .loadTestsFromTestCase(TestSpreadsheet)
+	##change what is the load test to run test 
+testSpreadsheet = unittest.TestLoader() \ .loadTestsFromTestCase(TestSpreadsheet)
 runner = unittest.TextTestRunner()
 runner.run(testSpreadsheet)
