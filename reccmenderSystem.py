@@ -79,7 +79,7 @@ class Recomendation():
              else: ans += ls[0] +" "
              ans += "your song suggestion for today are: " 
              for song in genre_red:
-                ans += song[0] + " by "+ song[1]+ ", "
+                ans += song[0] + "\033[33m by "+ song[1]+ "\033[0m, "
             # remove the extra comma at the end 
              ans = ans[:-2]
         else:

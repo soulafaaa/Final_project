@@ -20,6 +20,7 @@ class TestSpreadsheet(unittest.TestCase):
        
         actual = spreadsheet.find_song(["car"])
         expected_result= []
+       
         self.assertEqual(actual, expected_result)
        
         
@@ -28,6 +29,7 @@ class TestSpreadsheet(unittest.TestCase):
         
         acutal = spreadsheet.find_song(["Pop","Country"])
         expected_result= [('All Too Well - 10 minute version', 'Taylor Swift')]
+       
         self.assertListEqual(acutal, expected_result)
         
         
@@ -52,7 +54,8 @@ class TestSpreadsheet(unittest.TestCase):
         
              
         
-	##change what is the load test to run test 
-testSpreadsheet = unittest.TestLoader() \ .loadTestsFromTestCase(TestSpreadsheet)
+	##change whats isn the load test to run test 
+testSpreadsheet = unittest.TestLoader() \
+                       .loadTestsFromTestCase(TestSpreadsheet)
 runner = unittest.TextTestRunner()
 runner.run(testSpreadsheet)
