@@ -108,9 +108,13 @@ def main():
                      "Option B:a song recommendation based on your  favorite genre.\n\033[0m")
             rec_type = input("What kind of recomendation would you like today? Type A or B\n")
             if checkString(rec_type):
-                if rec_type.strip() == "A"| rec_type.strip() == "a":
-                    fav_genre = input("what is your favorite genre?"
-                                      " (if more than one separate answers with space)\n")
+               # incase a user inputs lower case
+                look_for_1 = "A"
+                look_for_1 = look_for_1.casefold()
+                
+                if rec_type.strip().casefold() == look_for_1:
+                    fav_genre = input("What is your favorite genre?"
+                                      " (If more than one separate answers with space)\n")
                     if checkString(fav_genre):
                         #creating an isntance of the recomendation class 
                         rec = Recomendation(fav_genre)
@@ -121,10 +125,13 @@ def main():
                             continue
                         else:
                             break
-                    
-                if rec_type.strip() == "B" | rec_type.strip() == "b" :
-                     fav_genre = input("what is your favorite genre?"
-                                      "(if more than one separate answers with space)\n")
+                        
+                # incase a user inputs lower case
+                look_for_2 = "B"
+                look_for_2 = look_for_2.casefold()   
+                if rec_type.strip().casefold() == look_for_2:
+                     fav_genre = input("What is your favorite genre?"
+                                      " (If more than one separate answers with space)\n")
                     #call song rec
                      if checkString(fav_genre):
                         #creating an isntance of the recomendation class 
