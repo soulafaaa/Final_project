@@ -4,8 +4,8 @@ import reccmenderSystem
 
 class TestSpreadsheet(unittest.TestCase):
     """ 
-        This class  will hold all the unit test needed to test the methods and functions
-        present in spreadsheet angteh the reccmenderSystem script
+        This class  will hold all the unit test needed to test all the functions
+        present in spreadsheet script. 
     """
     
     def test_regex_helper(self):
