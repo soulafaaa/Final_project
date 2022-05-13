@@ -34,7 +34,7 @@ class TestSpreadsheet(unittest.TestCase):
         
         
     def test_recommend_artist_1(self):
-        """ Pass in values to test recommend_artist_1 fucntion in spreadsheet """
+        """ Pass in values to test recommend_artist fucntion in spreadsheet """
        
         acutal = spreadsheet.recommend_artist(["Pop","Country"])
         expected_result= [ 'Taylor Swift']
@@ -42,7 +42,7 @@ class TestSpreadsheet(unittest.TestCase):
    
    
     def test_recommend_artist_2(self):
-        """ pass in values to test recommend_artist_2 fucntion in spreadsheet """
+        """ pass in values to test recommend_artist fucntion in spreadsheet """
        
         acutal = spreadsheet.recommend_artist(["EDM"])
         expected_result = ['Adventure club']
