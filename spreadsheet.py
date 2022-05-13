@@ -1,4 +1,4 @@
-""" This scrit holds three functions  that are needed to extract data from  the googl sheet."""
+""" This scrit holds three functions that are needed to extract data from  the google sheet."""
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials

@@ -18,7 +18,7 @@ class TestSpreadsheet(unittest.TestCase):
     def test_recommend_song(self):
         """ Pass in values to test recommend_song fucntion in spreadsheet """
        
-        actual = spreadsheet.recommend_song(["car"])
+        actual = spreadsheet.find_song(["car"])
         expected_result= []
        
         self.assertEqual(actual, expected_result)
@@ -27,7 +27,7 @@ class TestSpreadsheet(unittest.TestCase):
     def test_recommend_song_2(self):
         """ Pass in values to test recommend_song fucntion in spreadsheet """
         
-        acutal = spreadsheet.recommend_song(["Pop","Country"])
+        acutal = spreadsheet.find_song(["Pop","Country"])
         expected_result= [('All Too Well - 10 minute version', 'Taylor Swift')]
        
         self.assertListEqual(acutal, expected_result)
@@ -36,7 +36,7 @@ class TestSpreadsheet(unittest.TestCase):
     def test_recommend_artist_1(self):
         """ Pass in values to test recommend_artist fucntion in spreadsheet """
        
-        acutal = spreadsheet.recommend_artist(["Pop","Country"])
+        acutal = spreadsheet.find_artist(["Pop","Country"])
         expected_result= [ 'Taylor Swift']
         self.assertListEqual(acutal, expected_result)
    
@@ -44,26 +44,18 @@ class TestSpreadsheet(unittest.TestCase):
     def test_recommend_artist_2(self):
         """ pass in values to test recommend_artist fucntion in spreadsheet """
        
-        acutal = spreadsheet.recommend_artist(["EDM"])
+        acutal = spreadsheet.find_artist(["EDM"])
         expected_result = ['Adventure club']
         self.assertListEqual(acutal, expected_result)
         
         
-        
-class TestRecomendation(unittest.TestCase):  
-   
-    def testartistRecomendation(self):
-        pass
+    
     
         
-        
-        
-    
-
-        
+             
         
 	##change whats isn the load test to run test 
 testSpreadsheet = unittest.TestLoader() \
-                       .loadTestsFromTestCase(testSpreadsheet)
+                       .loadTestsFromTestCase(TestSpreadsheet)
 runner = unittest.TextTestRunner()
-runner.run(maybe)
+runner.run(testSpreadsheet)
