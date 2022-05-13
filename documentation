@@ -1,0 +1,22 @@
+ 
+Neetha Thomas, Soulafa Hajhamad, Archana Swaminathan
+5.13.22
+INST326
+Cruz
+
+Code Documentation:
+
+Our project is a recommender system that utilizes music preferences and data on favorite music genres to suggest songs and artists that a user may be interested in. It takes in data from multiple people regarding favorite song, favorite music genre, and favorite artist, and returns a list of songs that align with the interests of these individuals. This system not only appeals to the efficiency of finding songs that we would like but also helps to connect ourselves to others with similar music tastes. 
+
+When accessing the file on Visual Studio, you want to run the recommenderSystem.py file. After running the program, it will prompt the user to put in their name. An invalid input will lead to the repetition of the name request until a valid input is accepted. After this step is completed, the program will prompt a question to select between Option A and Option B. After selecting an option, it will prompt the user to input their favorite genre. After the user input this information, a print statement will follow with the result set.
+
+For the steps regarding the usage of the program the user will run the program and will be prompted to enter their name. After inputting the name, the following prompt will instruct the user to select Option A or Option B. Option A is an artist recommendation and Option B will provide a song recommendation. After selection, the file will interpret the spreadsheet.py and produce information regarding the option selected. In regards to interpreting the output of the data, the code result will produce a list of recommended artists or songs after the user inputs their favorite genre. The end result is specific to the user input, as it curates the music suggestions to match the data that the user’s friends have specified. Thus, the user should interpret the results as a list of songs/artists they may enjoy rather than a playlist.
+ 
+Annotated Bibliography:
+
+“Google Sheets and Python.” YouTube, uploaded by Twilio, 27 Feb. 2017, www.youtube.com/watch?v=vISRn5qFrkM
+We used this video to help understand how to connect our code script to google sheets. This video really helped to understand how to use the google drive API in the process as well, which further helped improve our understanding of how spread works and operates.  
+ 
+“Gspread — Gspread 5.3.2 Documentation.” Gspread, docs.gspread.org/en/v5.3.2. Accessed 5 May 2022
+We utilized this site to learn more about gspread. We needed to learn how to use a python API for google sheets. The site provided instructions on the installation process as well as an example of importing it in python. The website also provided numerous examples of methods to use gspread, which was extremely helpful in the development of our project.
+
