@@ -1,6 +1,6 @@
 """ 
-   This script hold the recommendation class that will invoke function from the 
-   spreadsheet script it will also collect responses from users in teh main function
+   This script holds the recommendation class that will invoke function from the 
+   spreadsheet script. It will also collect responses from users in the main function
    and will pass the arguments into the recommendation class.
 """
 import sys 
@@ -9,20 +9,20 @@ import spreadsheet as sp
 
 class Recomendation():
     """ 
-    This class will retrun the user reccomenation  by invoking fucntions from 
-        spreadsheet script
+    This class will retrun the user recommendation by invoking fucntions from 
+        spreadsheet script.
         
     Attributes:
-        genre (string): value representing the user's favorite music type, this value will 
-            than be turned into a list 
+        genre (string): value representing the user's favorite music type; this value will 
+            then be turned into a list 
     """
     
     def __init__(self, genre):
         """
-        Initializes a Recomendation object.
+        Initializes a Recommendation object.
 
         Args:
-            genre (string): value representing the user's favorite music type,
+            genre (string): value representing the user's favorite music type
 
         """
         self.genre = genre
@@ -30,7 +30,7 @@ class Recomendation():
     
     def artist_rec(self): 
         """ 
-        This methods will call recommend_artist function from the spreadsheet
+        These methods will call the recommend_artist function from the spreadsheet.
         
         Return: 
           ans (String) : A value represnting the artist suggestion  
@@ -60,10 +60,10 @@ class Recomendation():
     
     def song_rec(self): 
         """ 
-        This methods will call recommend_song function from the spreadsheet
+        This method will call the recommend_song function from the spreadsheet.
     
         Return: 
-            ans: value represnting the song suggestion  with the artist name
+            ans: value represnting the song suggestion with the artist name
         """
         #slitting the genrea into a list 
         ls = self.genre.split()
@@ -93,10 +93,10 @@ class Recomendation():
 def main():
     """ 
     This function will collect user input and pass the responses into methods from the 
-        recomendation class
+        recomendation class.
         
     Return: 
-        String value that represnts the recommended music. 
+        String value that represents the recommended music. 
     """
     
     
@@ -148,10 +148,10 @@ def main():
                 
 def checkString(word):
     """ 
-    A helper function that uese regex to make sure the user has inpouted an acepted value
+    A helper function that uses regex to make sure the user has inputted an accepted value.
     
     Args: 
-        word (string): a string that represent the user input 
+        word (string): a string that represents the user input 
         
     Return: 
         value (boolean): returns a boolean depending on whether the user has inputted an accepted value
